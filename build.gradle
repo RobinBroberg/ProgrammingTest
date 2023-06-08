@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+tasks.withType(JavaExec).configureEach {
+    standardInput = System.in
+    standardOutput = System.out
+}
+
+task runAnagramChecker(type: JavaExec) {
+    mainClass.set('AnagramChecker.AnagramChecker')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task runLinkFinder(type: JavaExec) {
+    mainClass.set('LinkFinder.LinkFinder')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task runCalculatorOne(type: JavaExec) {
+    mainClass.set('CalculatorOne.CalculatorOne')
+    classpath = sourceSets.main.runtimeClasspath
+}
+task runCalculatorTwo(type: JavaExec) {
+    mainClass.set('CalculatorTwo.CalculatorTwo')
+    classpath = sourceSets.main.runtimeClasspath
+}
+task runCalculatorThree(type: JavaExec) {
+    mainClass.set('CalculatorThree.CalculatorThree')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:4.9.1'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.9.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    implementation 'org.slf4j:slf4j-nop:1.7.32'
+
+}
+
+test {
+    useJUnitPlatform()
+}
